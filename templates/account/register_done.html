@@ -1,0 +1,204 @@
+
+
+
+
+
+{% extends "base.html" %}
+{% block title %}Тіркелу аяқталды!{% endblock %}
+{% load static %}
+{% block content %}
+
+
+<header id="header"><!--header-->
+
+		<div class="header-middle"><!--header-middle-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="logo ">
+						<a href="{% url 'home:home' %}"><img src="{% static 'images/home/logo.png' %}" alt="" width="150"/></a>
+					</div>
+
+					</div>
+                    <div class="col-sm-4">
+						<div class="logo pull-left">
+					<h1>3 Талапкер орта мектебі</h1>
+                        </div>
+
+					</div>
+
+					<div class="col-sm-4">
+						<div class="shop-menu pull-right">
+							<ul class="nav navbar-nav">
+
+						                  {% if request.user.is_authenticated %}
+			<li><a href="{% url 'registration:logout' %}"><i class="fa fa-lock"></i> Шығу</a></li>
+
+                            {% else %}
+
+								<li><a href="{% url 'registration:login' %}"><i class="fa fa-lock"></i> Кіру</a></li>
+								<li><a href="{% url 'registration:register' %}"><i class="fa fa-lock"></i> Тіркелу</a></li>
+							{% endif %}
+
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/header-middle-->
+
+		<div class="header-bottom"><!--header-bottom-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-11">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
+						<div class="mainmenu pull-left">
+							<ul class="nav navbar-nav collapse navbar-collapse">
+								<li><a href="{% url 'home:home' %}" class="active">Кітапхана</a></li>
+								<li><a href="{% url 'home:book_list' %}">Кітаптар</a></li>
+								<li><a href="{% url 'home:author_list' %}">Авторлар</a></li>
+								<li class="dropdown"><a href="#">Ережелер<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+
+                                        <li><a href="{% url 'home:book_rules' %}">Кітапхана ережесі</a></li>
+                                        <li><a href="{% url 'home:teshin_rules' %}">Техника қауіпсіздік ережесі</a></li>
+                                        <li><a href="{% url 'home:read_rules' %}">Оқулық қолдану ережесі</a></li>
+                                    </ul>
+                                </li>
+
+	                			<li><a href="{% url 'home:library_best' %}">Кітапхана белсенділері</a></li>
+
+
+                                <li><a href="{% url 'home:about_us' %}">Кітапхана туралы</a></li>
+								<li><a href="{% url 'home:contact_us' %}">Бізге хат</a></li>
+
+
+
+							</ul>
+						</div>
+					</div>
+                	<div class="col-sm-1">
+						<div class="search_box pull-right">
+                            <form action="" method="get">
+                        {% csrf_token %}
+                            							<input type="text" class="text" name="q" placeholder="Іздеу" />
+
+                            </form>
+							</div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+				</div>
+
+
+
+	</header><!--/header-->
+
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-9">
+
+<h1>Қош келдіңіз! {{ new_user.first_name }}!</h1>
+<p>Сіздің аккаунт сәтті тіркелді. <a href="{% url "registration:login" %}">Кіру</a> ушін осы сілтемеден өтіңіз!</p>
+
+				</div>
+
+				<div class="col-sm-3">
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer id="footer">
+		<div class="footer-widget">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>Service</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">Online Help</a></li>
+								<li><a href="#">Contact Us</a></li>
+								<li><a href="#">Order Status</a></li>
+								<li><a href="#">Change Location</a></li>
+								<li><a href="#">FAQ’s</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>Quock Shop</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">T-Shirt</a></li>
+								<li><a href="#">Mens</a></li>
+								<li><a href="#">Womens</a></li>
+								<li><a href="#">Gift Cards</a></li>
+								<li><a href="#">Shoes</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>Policies</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">Terms of Use</a></li>
+								<li><a href="#">Privecy Policy</a></li>
+								<li><a href="#">Refund Policy</a></li>
+								<li><a href="#">Billing System</a></li>
+								<li><a href="#">Ticket System</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>About Shopper</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">Company Information</a></li>
+								<li><a href="#">Careers</a></li>
+								<li><a href="#">Store Location</a></li>
+								<li><a href="#">Affillate Program</a></li>
+								<li><a href="#">Copyright</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-3 col-sm-offset-1">
+						<div class="single-widget">
+							<h2>About Shopper</h2>
+							<form action="#" class="searchform">
+								<input type="text" placeholder="Your email address" />
+								<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
+								<p>Get the most recent updates from <br />our site and be updated your self...</p>
+							</form>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row">
+					<p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
+					<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
+				</div>
+			</div>
+		</div>
+
+	</footer><!--/Footer-->
+
+{% endblock %}
