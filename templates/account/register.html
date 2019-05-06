@@ -111,10 +111,8 @@
 <p>Тіркелу үшін мәлеметтерді дұрыс толтырыныз;</p>
 <form action="." method="post">
         {% csrf_token %}
-        {% for i in user_form %}
-        <p>{{i.label_tag}}
-        {{i}}</p>
-        {% endfor %}
+
+<p> Логин:{{ user_form.username }}</p>
 
  <br>
       {% if user_form.errors %}

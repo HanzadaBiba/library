@@ -3,6 +3,7 @@ from books.models import Genre,Author,Books
 from django.db.models import Q
 from images.models import Images
 # Create your views here.
+
 from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
 
 def index(request):
